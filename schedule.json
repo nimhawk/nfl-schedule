@@ -1,0 +1,12 @@
+[{ "week": 1,
+  "opponent": {
+    "location": "Pittsburgh",
+    "name": "Steelers"
+  },
+  "score": {
+    "patriots":  28,
+    "opponent": 21
+  },
+  "date": "2015-09-10",
+  "home": true
+}]
