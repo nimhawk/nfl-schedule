@@ -1,12 +1,7 @@
 *.log*
 /node_modules
 /coverage
-build/
 dist/
-cookies.txt
 .sass-cache/
-FIREFOX*
-screenshots
-bundle.result*
 dump.rdb
 .DS_STORE

@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var DIST_DIR_PATH = path.join(__dirname, 'dist');
-var IS_PROD_MODE = isProdMode();
+var IS_PROD_MODE = (process.env.NODE_ENV === 'production');
 
 // ensure the `/dist` dir is available
 mkdirSync(DIST_DIR_PATH);
@@ -12,11 +12,11 @@ mkdirSync(DIST_DIR_PATH);
 var config = {
   context: path.join(__dirname, 'lib'),
   entry: {
-    App: './lib/components/App/App'
+    App: './components/App/App.js'
   },
   output: {
     path: path.join(DIST_DIR_PATH, 'bundles'),
-    publicPath: '/assets/bundles',
+    publicPath: '/assets',
     filename: '[name].js'
   },
   module: {
@@ -78,8 +78,6 @@ if (IS_PROD_MODE) {
   writeBundleDirectorySync('bundles');
 }
 
-addProcessEnvToAll(config.entry);
-
 module.exports = config;
 
 function writeStatsSync(stats) {
@@ -98,16 +96,4 @@ function mkdirSync(dirPath) {
   } catch(e) {
     if (e.code !== 'EEXIST') throw e;
   }
-}
-
-function isProdMode() {
-  return (process.argv.filter(function (a) {
-    return a === '-p';
-  })[0]) === '-p';
-}
-
-function addProcessEnvToAll(entry) {
-  Object.keys(entry).forEach(function (name) {
-    entry[name] = ['./utils/setupFrontendProcessEnv', entry[name]];
-  });
 }

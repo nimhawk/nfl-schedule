@@ -10,11 +10,7 @@ var nodemonServer = nodemon({
   ext: 'js',
   watch: [
     'server.js',
-    'lib/middleware',
-    'lib/resources',
-    'lib/services',
-    'lib/utils',
-    'lib/server.js'
+    'lib/*'
   ],
   env: {PORT: 4500},
   verbose: true
