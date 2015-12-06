@@ -49,7 +49,7 @@ function validateTags(tags, cb) {
 
   rows.forEach((i, r) => {
     if (cols < 4) {
-      return cb(new Error(`invalid number of columns ${columns}));
+      return cb(new Error(`invalid number of columns ${columns}`));
     }
   });
 

@@ -1,0 +1,34 @@
+[{ "week": 1,
+  "opponent": {
+    "location": "Pittsburgh",
+    "name": "Steelers"
+  },
+  "score": {
+    "patriots":  28,
+    "opponent": 21
+  },
+  "date": "2015-09-10",
+  "home": true
+},
+{ "week": 4
+},
+{ "week": 12,
+  "opponent": {
+    "location": "Denver",
+    "name": "Broncos"
+  },
+  "score": {
+    "patriots":  24,
+    "opponent": 30
+  },
+  "date": "2015-11-29",
+  "home": false
+},
+{ "week": 13,
+  "opponent": {
+    "location": "Philadephia",
+    "name": "Eagles"
+  },
+  "date": "2015-12-06",
+  "home": true
+}]
