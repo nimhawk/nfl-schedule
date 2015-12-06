@@ -12,7 +12,7 @@ mkdirSync(DIST_DIR_PATH);
 var config = {
   context: path.join(__dirname, 'lib'),
   entry: {
-    App: './components/App/App.js'
+    App: ['./components/App/App.js', './components/App/App.scss']
   },
   output: {
     path: path.join(DIST_DIR_PATH, 'bundles'),
@@ -34,14 +34,19 @@ var config = {
     }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('style', 'css!sass')
-    }, {
+    },
+    {
       test: /\.(png|jpg|gif)$/,
       loader: 'url',
       query: {
         limit: 10000,
         name: '../images/[name]-[hash].[ext]'
       }
-    }]
+    },
+    { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+    { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+    { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+    { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }]
   },
   //this de-dupes any duplicate versions of React
   resolve: {

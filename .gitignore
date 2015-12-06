@@ -1,4 +1,5 @@
 *.log*
+/.npm
 /node_modules
 /coverage
 dist/
